@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhoIsShe | 팔로우 목록 비교 도구</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <p class="eyebrow">WhoIsShe</p>
+        <h1>업로드. 비교. 확인.</h1>
+        <p class="subtitle">
+          인스타그램 팔로우 스냅샷 2개를 비교해 <strong>새로 추가된 계정</strong>을 빠르게 찾는
+          정적 웹 도구입니다.
+        </p>
+      </header>
+
+      <section class="card upload-section" aria-labelledby="upload-title">
+        <h2 id="upload-title">파일 업로드</h2>
+        <p class="description">텍스트 파일(.txt) 형식으로 업로드하세요. 한 줄에 하나의 계정명을 입력하면 가장 정확합니다.</p>
+
+        <div class="upload-grid">
+          <label class="upload-box" for="beforeFile">
+            <span class="label">Before 스냅샷</span>
+            <input id="beforeFile" type="file" accept=".txt,text/plain" />
+            <span id="beforeFileName" class="filename">선택된 파일 없음</span>
+          </label>
+
+          <label class="upload-box" for="afterFile">
+            <span class="label">After 스냅샷</span>
+            <input id="afterFile" type="file" accept=".txt,text/plain" />
+            <span id="afterFileName" class="filename">선택된 파일 없음</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="compareBtn" class="btn" type="button">비교 시작</button>
+          <button id="resetBtn" class="btn secondary" type="button">초기화</button>
+        </div>
+
+        <p id="statusMessage" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card result-section" aria-labelledby="result-title">
+        <div class="result-header">
+          <h2 id="result-title">비교 결과</h2>
+          <span id="resultCount" class="badge">0개 추가됨</span>
+        </div>
+
+        <ul id="resultList" class="result-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="card info">
+        <h2>개인정보 안내</h2>
+        <ul>
+          <li>모든 비교는 브라우저 내부에서만 처리됩니다.</li>
+          <li>업로드 파일은 서버로 전송되지 않습니다.</li>
+          <li>로그인, API, 백엔드 없이 동작합니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
